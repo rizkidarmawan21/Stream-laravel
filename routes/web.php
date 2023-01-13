@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::view('/', 'admin.dashboard')->name('dashboard');
+
+    Route::prefix('movie')->name('movie.')->group(function () {
+        Route::get('/', [MovieController::class, 'index'])->name('index');
+        Route::get('/create', [MovieController::class, 'create'])->name('create');
+    });
 });
