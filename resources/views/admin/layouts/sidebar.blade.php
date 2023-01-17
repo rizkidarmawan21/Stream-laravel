@@ -34,7 +34,8 @@
                   </li>
 
                   <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
+                      <a href="{{ route('admin.transaction.index') }}"
+                          class="nav-link {{ request()->routeIs('admin.transaction.index') ? 'active' : '' }}">
                           <i class="nav-icon fas fa-shopping-cart"></i>
                           <p>
                               Transactions
@@ -50,6 +51,17 @@
                               Movies
                           </p>
                       </a>
+                  </li>
+                  <li class="nav-item">
+                      <form action="{{ route('admin.logout') }}" method="post">
+                          @csrf
+                          <button type="submit" class="nav-link">
+                              <i class="nav-icon fas fa-sign-out-alt"></i>
+                              <p>
+                                  Logout
+                              </p>
+                          </button>
+                      </form>
                   </li>
               </ul>
           </nav>
