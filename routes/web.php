@@ -24,5 +24,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('movie')->name('movie.')->group(function () {
         Route::get('/', [MovieController::class, 'index'])->name('index');
         Route::get('/create', [MovieController::class, 'create'])->name('create');
+        Route::get('/edit/{movie}', [MovieController::class, 'edit'])->name('edit');
+        Route::post('/store', [MovieController::class, 'store'])->name('store');
+        Route::put('/update/{movie}', [MovieController::class, 'update'])->name('update');
+        Route::delete('/delete/{movie}', [MovieController::class, 'destroy'])->name('destroy');
     });
 });
