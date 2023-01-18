@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .nav-link-item {
+        @apply py-3 font-normal text-stream-gray transition-all cursor-pointer lg:py-0 hover:text-white;
+    }
+}
+
+.frame-video {
+    @apply rounded-[28px];
+    filter: drop-shadow(0px 32px 52px rgba(140, 135, 162, 0.18))
+}
